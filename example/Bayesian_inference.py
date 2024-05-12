@@ -527,14 +527,14 @@ def main():
 
 
     # Construct prerequisites for MCMC
-    #construct_prerequisites(training_model_results=training_model_results, training_parameter_list=training_parameter_list, 
-                            #test_results=test_results[0].reshape(1, -1), test_parameter_list=test_parameter_list[0].reshape(1, -1), 
-                            #name=name, num_pca_components=num_pca_components, scale_factor=scale_factor)
+    construct_prerequisites(training_model_results=training_model_results, training_parameter_list=training_parameter_list, 
+                            test_results=test_results[0].reshape(1, -1), test_parameter_list=test_parameter_list[0].reshape(1, -1), 
+                            name=name, num_pca_components=num_pca_components, scale_factor=scale_factor)
 
     # Prepare input data for MCMC and check for numerical issues
-    #for row in test_parameter_list:
-         #construct_input(parameter_list=row.reshape(1, -1), num_pca_components=num_pca_components, name=name, 
-                        #exp_data=exp_scale_data, exp_error=exp_cov_mat)
+    for row in test_parameter_list:
+         construct_input(parameter_list=row.reshape(1, -1), num_pca_components=num_pca_components, name=name, 
+                        exp_data=exp_scale_data, exp_error=exp_cov_mat)
     # Note: Don't turn on pca_eigenvectors here,  trun it on  in the mcmc calse instant if we want to include 
     # model systematic error in your calculation 
     
